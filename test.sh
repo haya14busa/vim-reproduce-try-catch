@@ -1,2 +1,2 @@
 #!/bin/sh
-vim -E -s -N -c 'source test.vim' -c q
+vim -E -s -N --cmd 'set rtp+=.' -c 'exe "so" argv()[0]' -c q -- test.vim $*
