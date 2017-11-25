@@ -1,0 +1,28 @@
+language: generic
+
+git:
+  depth: 1
+
+matrix:
+  include:
+    - env:
+      - VIM_VERSION=v7.4
+    - env:
+      - VIM_VERSION=v8.0.0000
+    - env:
+      - VIM_VERSION=master
+    - env:
+      - VIM_VERSION=installed
+
+install:
+  - |
+    if [ "$VIM_VERSION" != 'installed' ]; then
+      bash scripts/install-vim.sh
+      export PATH=$HOME/vim/bin:$PATH
+    fi
+
+script:
+  - uname -a
+  - which -a vim
+  - vim --cmd version --cmd quit
+  - vim -E -s -N -c 'source test.vim' -c q
