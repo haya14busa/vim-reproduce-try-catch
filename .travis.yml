@@ -25,4 +25,4 @@ script:
   - uname -a
   - which -a vim
   - vim --cmd version --cmd quit
-  - vim -E -s -N -c 'source test.vim' -c q
+  - ./test.sh a b
