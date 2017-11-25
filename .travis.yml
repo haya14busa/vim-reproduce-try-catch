@@ -25,4 +25,4 @@ script:
   - uname -a
   - which -a vim
   - vim --cmd version --cmd quit
-  - ./test.sh
+  - ./test.sh a b
